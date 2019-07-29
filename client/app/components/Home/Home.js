@@ -258,26 +258,22 @@ onTextBoxChangeSignInEmail(event){
               ): (null)
             }
             <p className="text-center">Sign In</p>
-            <div className="form-inline">
+            <div className="form-group row">
               <label htmlFor="email" className="mr-sm-2 col-2 offset-3 text-right">Email address</label>
-              <input
-                className="form-control col-4"
-                type="email"
-                placeholder="Email"
-                value={signInEmail}
-                onChange={this.onTextBoxChangeSignInEmail}
-              />
+              <div className="col-4">
+                <input
+                  className="form-control" type="email" placeholder="Email" value={signInEmail} onChange={this.onTextBoxChangeSignInEmail}
+                />
+              </div>
             </div>
             <br/>
-            <div className="form-inline">
+            <div className="form-group row">
               <label htmlFor="password" className="mr-sm-2 col-2 offset-3 text-right">Password</label>
-              <input
-                className="form-control col-4"
-                type="password"
-                placeholder="Password"
-                value={signInPassword}
-                onChange={this.onTextBoxChangeSignInPassword}
-              />
+              <div className="col-4">
+                <input
+                  className="form-control" type="password" placeholder="Password" value={signInPassword} onChange={this.onTextBoxChangeSignInPassword}
+                />
+              </div>
             </div>
             <br/>
             <button className="btn btn-outline-success offset-5" onClick={this.onSignIn}>Sign In</button>
@@ -291,51 +287,47 @@ onTextBoxChangeSignInEmail(event){
               ): (null)
             }
             <p className="text-center">Sign Up</p>
-            <div className="form-inline">
-              <label htmlFor="firstname" className="mr-sm-2 col-2 offset-3">First Name</label>
-              <input
-                className="form-control col-4"
-                type="text"
-                placeholder="First Name"
-                value={signUpFirstName}
-                onChange={this.onTextBoxChangeSignUpFirstName}
+            <div className="form-group row">
+              <label htmlFor="firstname" className="mr-sm-2 col-2 offset-3 text-right">First Name</label>
+              <div className="col-4">
+                <input
+                className="form-control" type="text" placeholder="First Name" value={signUpFirstName} onChange={this.onTextBoxChangeSignUpFirstName}
               />
+              </div>
             </div>
             <br/>
-            <div className="form-inline">
-              <label htmlFor="lastname" className="mr-sm-2 col-2 offset-3">Last Name</label>
-              <input
-                className="form-control col-4"
-                type="text"
-                placeholder="Last Name"
-                value={signUpLastName}
-                onChange={this.onTextBoxChangeSignUpLastName}
+            <div className="form-group row">
+              <label htmlFor="lastname" className="mr-sm-2 col-2 offset-3 text-right">Last Name</label>
+              <div className="col-4">
+                <input
+                className="form-control" type="text" placeholder="Last Name" value={signUpLastName} onChange={this.onTextBoxChangeSignUpLastName}
               />
+              </div>
             </div>
             <br/>
-            <div className="form-inline">
-              <label htmlFor="email" className="mr-sm-2 col-2 offset-3">Email Address</label>
-              <input
-                className="form-control col-4"
-                type="email"
-                placeholder="Email"
-                value={signUpEmail}
-                onChange={this.onTextBoxChangeSignUpEmail}
+            <div className="form-group row">
+              <label htmlFor="email" className="mr-sm-2 col-2 offset-3 text-right">Email Address</label>
+              <div className="col-4">
+                <input
+                className="form-control" type="email" placeholder="Email" value={signUpEmail} onChange={this.onTextBoxChangeSignUpEmail}
               />
+              </div>
             </div>
             <br/>
-            <div className="form-inline">
-              <label htmlFor="password" className="mr-sm-2 col-2 offset-3">Password</label>
-              <input
-                className="form-control col-4"
-                type="password"
-                placeholder="Password"
-                value={signUpPassword}
-                onChange={this.onTextBoxChangeSignUpPassword}
+            <div className="form-group row">
+              <label htmlFor="password" className="mr-sm-2 col-2 offset-3 text-right">Password</label>
+              <div className="col-4">
+                <input
+                className="form-control" type="password" placeholder="Password" value={signUpPassword} onChange={this.onTextBoxChangeSignUpPassword}
               />
+              </div>
             </div>
             <br/>
-            <button className="btn btn-outline-success offset-5" onClick={this.onSignUp} >Sign Up</button>
+            <div className=" form-group-row">
+              <div className="offset-5">
+                <button className="btn btn-outline-success" onClick={this.onSignUp} >Sign Up</button>
+              </div>
+            </div>
           </form>
         </div>
       )
@@ -343,7 +335,7 @@ onTextBoxChangeSignInEmail(event){
     return (
         <div>
             <p>Account</p>
-          <button className="btn btn-outline-success offset-5 " onClick={this.onLogOut}>Log Out</button>
+          <button className="btn btn-outline-success offset-6 " onClick={this.onLogOut}>Log Out</button>
         </div>
     );
   }
