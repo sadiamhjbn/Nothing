@@ -1,11 +1,25 @@
 
 @import "~bootstrap/scss/bootstrap";
+
 body{
-  background-color: darkslategrey;
+  background-color: #B0BCAA;
 }
 .nomargin{
   margin-right: 0!important;
 }
 .nav-tabs{
   border-bottom: 0;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  background-color: #6D9886;
+  color: white;
+}
+.btn-outline-greenish {
+  color: #6D9886;
+  border-color: #6D9886;
+}
+.btn-outline-greenish:hover {
+  background-color: #6D9886;
+  color:white;
+  border-color: #6D9886;
 }

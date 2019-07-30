@@ -290,7 +290,9 @@ onTextBoxChangeSignInEmail(event){
                 <form >
                   {
                     (signInError)?(
-                      <p>{signInError}</p>
+                      <div className="text-center">
+                        <p className="text-danger">{signInError}</p>
+                      </div>
                     ): (null)
                   }
                   <div className="form-group row">
@@ -313,7 +315,7 @@ onTextBoxChangeSignInEmail(event){
                   <br/>
                   <div className="form-group row">
                     <div className="offset-4 col-4">
-                      <button className="btn btn-outline-info" onClick={this.onSignIn}>Sign In</button>
+                      <button className="btn btn-outline-greenish" onClick={this.onSignIn}>Sign In</button>
                     </div>
                   </div>
 
@@ -323,7 +325,9 @@ onTextBoxChangeSignInEmail(event){
                 <form>
                   {
                     (signUpError)?(
-                      <p>{signUpError}</p>
+                      <div className="text-center">
+                        <p className="text-danger">{signUpError}</p>
+                      </div>
                     ): (null)
                   }
                   <div className="form-group row">
@@ -364,7 +368,7 @@ onTextBoxChangeSignInEmail(event){
                   <br/>
                   <div className=" form-group row">
                     <div className="offset-4 col-4">
-                      <button className="btn btn-outline-success" onClick={this.onSignUp} >Sign Up</button>
+                      <button className="btn btn-outline-greenish" onClick={this.onSignUp} >Sign Up</button>
                     </div>
                   </div>
                 </form>
@@ -378,7 +382,7 @@ onTextBoxChangeSignInEmail(event){
     return (
         <div>
             <p>Account</p>
-          <button className="btn btn-outline-success offset-6 " onClick={this.onLogOut}>Log Out</button>
+          <button className="btn btn-outline-info offset-6 " onClick={this.onLogOut}>Log Out</button>
         </div>
     );
   }
