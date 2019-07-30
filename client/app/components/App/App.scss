@@ -1,37 +1,36 @@
 $nav-tabs-border-radius: 0;
+$greenbtn: #6D9886;
+$theme-colors: (
+  'greenish': $greenbtn,
+) !default;
 @import "~bootstrap/scss/bootstrap";
 
 body{
   background-color: #B0BCAA;
 }
-.nomargin{
-  margin-right: 0!important;
-}
+
 .nav-tabs{
 
   border-bottom: 0;
   box-shadow: none;
 }
 .nav-tabs .nav-link{
+  @extend .px-2;
+  @extend .mx-3;
+  cursor: pointer;
   border: none;
-  border-bottom: 3px solid $gray-500;
+  border-bottom: 3px solid $gray-300;
   padding-left: 0;
   padding-right: 0;
 }
 .nav-tabs .nav-link.active{
+  @extend .px-2;
+  @extend .mx-3;
+  cursor: pointer;
   border: none;
   border-bottom: 3px solid #6D9886;
   padding-left: 0;
   padding-right: 0;
-}
-.btn-outline-greenish {
-  color: #6D9886;
-  border-color: #6D9886;
-}
-.btn-outline-greenish:hover {
-  background-color: #6D9886;
-  color:white;
-  border-color: #6D9886;
 }
 .nav-tabs .nav-link{
   border-radius: 0;

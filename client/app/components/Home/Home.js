@@ -62,11 +62,11 @@ class Home extends Component {
         });
       }
   }
-onTextBoxChangeSignInEmail(event){
+  onTextBoxChangeSignInEmail(event){
     this.setState({
       signInEmail: event.target.value,
     });
-}
+  }
   onTextBoxChangeSignInPassword(event){
     this.setState({
       signInPassword: event.target.value,
@@ -134,8 +134,7 @@ onTextBoxChangeSignInEmail(event){
             signUpFirstName:'',
             signUpLastName:'',
           });
-        }
-        else{
+        } else{
           this.setState({
             signUpError: json.message,
             isLoading: false,
@@ -263,8 +262,8 @@ onTextBoxChangeSignInEmail(event){
 
           <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mt-5 card">
             <div >
-              <Nav tabs>
-                <NavItem className="col text-center">
+              <Nav tabs className="d-flex justify-content-center">
+                <NavItem className="text-center">
                   <NavLink
                     className={this.state.activeTab === '1'? "active":""}
                     onClick={() => { this.toggle('1'); }}
@@ -272,7 +271,7 @@ onTextBoxChangeSignInEmail(event){
                     Sign In
                   </NavLink>
                 </NavItem>
-                <NavItem className="col text-center">
+                <NavItem className="text-center">
                   <NavLink
                     className={this.state.activeTab === '2'? "active":""}
                     onClick={() => { this.toggle('2'); }}
@@ -294,7 +293,7 @@ onTextBoxChangeSignInEmail(event){
                     ): (null)
                   }
                   <div className="form-group row">
-                    <label htmlFor="email" className="mr-sm-2 col-4 text-right nomargin">Email address</label>
+                    <label htmlFor="email" className=" col-4 text-right col-form-label">Email address</label>
                     <div className="col-6">
                       <input
                         className="form-control" type="email" placeholder="Email" value={signInEmail} onChange={this.onTextBoxChangeSignInEmail}
@@ -303,7 +302,7 @@ onTextBoxChangeSignInEmail(event){
                   </div>
                   <br/>
                   <div className="form-group row">
-                    <label htmlFor="password" className="mr-sm-2 col-4 text-right nomargin">Password</label>
+                    <label htmlFor="password" className=" col-4 text-right col-form-label">Password</label>
                     <div className="col-6">
                       <input
                         className="form-control" type="password" placeholder="Password" value={signInPassword} onChange={this.onTextBoxChangeSignInPassword}
@@ -329,7 +328,7 @@ onTextBoxChangeSignInEmail(event){
                     ): (null)
                   }
                   <div className="form-group row">
-                    <label htmlFor="firstname" className="mr-sm-2 col-4 text-right nomargin">First Name</label>
+                    <label htmlFor="firstname" className=" col-4 text-right col-form-label">First Name</label>
                     <div className="col-6">
                       <input
                         className="form-control" type="text" placeholder="First Name" value={signUpFirstName} onChange={this.onTextBoxChangeSignUpFirstName}
@@ -338,7 +337,7 @@ onTextBoxChangeSignInEmail(event){
                   </div>
                   <br/>
                   <div className="form-group row">
-                    <label htmlFor="lastname" className="mr-sm-2 col-4 text-right nomargin">Last Name</label>
+                    <label htmlFor="lastname" className=" col-4 text-right col-form-label">Last Name</label>
                     <div className="col-6">
                       <input
                         className="form-control" type="text" placeholder="Last Name" value={signUpLastName} onChange={this.onTextBoxChangeSignUpLastName}
@@ -347,7 +346,7 @@ onTextBoxChangeSignInEmail(event){
                   </div>
                   <br/>
                   <div className="form-group row">
-                    <label htmlFor="email" className="mr-sm-2 col-4 text-right nomargin">Email Address</label>
+                    <label htmlFor="email" className=" col-4 text-right col-form-label">Email Address</label>
                     <div className="col-6">
                       <input
                         className="form-control" type="email" placeholder="Email" value={signUpEmail} onChange={this.onTextBoxChangeSignUpEmail}
@@ -356,7 +355,7 @@ onTextBoxChangeSignInEmail(event){
                   </div>
                   <br/>
                   <div className="form-group row">
-                    <label htmlFor="password" className="mr-sm-2 col-4 text-right nomargin">Password</label>
+                    <label htmlFor="password" className=" col-4 text-right col-form-label">Password</label>
                     <div className="col-6">
                       <input
                         className="form-control" type="password" placeholder="Password" value={signUpPassword} onChange={this.onTextBoxChangeSignUpPassword}
