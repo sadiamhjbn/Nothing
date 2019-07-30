@@ -1,4 +1,6 @@
+
 import React, { Component } from 'react';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import 'whatwg-fetch';
 import {
   getFromStorage,
@@ -20,8 +22,7 @@ class Home extends Component {
       signUpLastName:'',
       signUpEmail:'',
       signUpPassword:'',
-      isLoginOpen: true,
-      isRegisterOpen: false,
+      activeTab: '1',
     };
     this.onTextBoxChangeSignInEmail = this.onTextBoxChangeSignInEmail.bind(this);
     this.onTextBoxChangeSignInPassword = this.onTextBoxChangeSignInPassword.bind(this);
@@ -32,6 +33,7 @@ class Home extends Component {
     this.onSignUp = this.onSignUp.bind(this);
     this.onSignIn= this.onSignIn.bind(this);
     this.onLogOut= this.onLogOut.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   componentWillMount() {
@@ -89,6 +91,13 @@ onTextBoxChangeSignInEmail(event){
     this.setState({
       signUpLastName: event.target.value,
     });
+  }
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
   }
   onSignUp(){
     //grab state
@@ -250,86 +259,120 @@ onTextBoxChangeSignInEmail(event){
 
     if(!token){
       return (
-        <div >
-          <form >
-            {
-              (signInError)?(
-                <p>{signInError}</p>
-              ): (null)
-            }
-            <p className="text-center">Sign In</p>
-            <div className="form-group row">
-              <label htmlFor="email" className="mr-sm-2 col-2 offset-3 text-right">Email address</label>
-              <div className="col-4">
-                <input
-                  className="form-control" type="email" placeholder="Email" value={signInEmail} onChange={this.onTextBoxChangeSignInEmail}
-                />
-              </div>
-            </div>
-            <br/>
-            <div className="form-group row">
-              <label htmlFor="password" className="mr-sm-2 col-2 offset-3 text-right">Password</label>
-              <div className="col-4">
-                <input
-                  className="form-control" type="password" placeholder="Password" value={signInPassword} onChange={this.onTextBoxChangeSignInPassword}
-                />
-              </div>
-            </div>
-            <br/>
-            <button className="btn btn-outline-success offset-5" onClick={this.onSignIn}>Sign In</button>
-          </form>
+        <div>
           <br/>
           <br/>
-          <form>
-            {
-              (signUpError)?(
-                <p>{signUpError}</p>
-              ): (null)
-            }
-            <p className="text-center">Sign Up</p>
-            <div className="form-group row">
-              <label htmlFor="firstname" className="mr-sm-2 col-2 offset-3 text-right">First Name</label>
-              <div className="col-4">
-                <input
-                className="form-control" type="text" placeholder="First Name" value={signUpFirstName} onChange={this.onTextBoxChangeSignUpFirstName}
-              />
-              </div>
+          <br/>
+          <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 card">
+            <div className="offset-4">
+              <Nav tabs>
+                <NavItem>
+                  <NavLink
+                    className={this.state.activeTab === '1'? "active":""}
+                    onClick={() => { this.toggle('1'); }}
+                  >
+                    Sign In
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    className={this.state.activeTab === '2'? "active":""}
+                    onClick={() => { this.toggle('2'); }}
+                  >
+                    Sign Up
+                  </NavLink>
+                </NavItem>
+              </Nav>
             </div>
             <br/>
-            <div className="form-group row">
-              <label htmlFor="lastname" className="mr-sm-2 col-2 offset-3 text-right">Last Name</label>
-              <div className="col-4">
-                <input
-                className="form-control" type="text" placeholder="Last Name" value={signUpLastName} onChange={this.onTextBoxChangeSignUpLastName}
-              />
-              </div>
-            </div>
-            <br/>
-            <div className="form-group row">
-              <label htmlFor="email" className="mr-sm-2 col-2 offset-3 text-right">Email Address</label>
-              <div className="col-4">
-                <input
-                className="form-control" type="email" placeholder="Email" value={signUpEmail} onChange={this.onTextBoxChangeSignUpEmail}
-              />
-              </div>
-            </div>
-            <br/>
-            <div className="form-group row">
-              <label htmlFor="password" className="mr-sm-2 col-2 offset-3 text-right">Password</label>
-              <div className="col-4">
-                <input
-                className="form-control" type="password" placeholder="Password" value={signUpPassword} onChange={this.onTextBoxChangeSignUpPassword}
-              />
-              </div>
-            </div>
-            <br/>
-            <div className=" form-group-row">
-              <div className="offset-5">
-                <button className="btn btn-outline-success" onClick={this.onSignUp} >Sign Up</button>
-              </div>
-            </div>
-          </form>
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane tabId="1">
+                <form >
+                  {
+                    (signInError)?(
+                      <p>{signInError}</p>
+                    ): (null)
+                  }
+                  <div className="form-group row">
+                    <label htmlFor="email" className="mr-sm-2 col-4 text-right nomargin">Email address</label>
+                    <div className="col-6">
+                      <input
+                        className="form-control" type="email" placeholder="Email" value={signInEmail} onChange={this.onTextBoxChangeSignInEmail}
+                      />
+                    </div>
+                  </div>
+                  <br/>
+                  <div className="form-group row">
+                    <label htmlFor="password" className="mr-sm-2 col-4 text-right nomargin">Password</label>
+                    <div className="col-6">
+                      <input
+                        className="form-control" type="password" placeholder="Password" value={signInPassword} onChange={this.onTextBoxChangeSignInPassword}
+                      />
+                    </div>
+                  </div>
+                  <br/>
+                  <div className="form-group row">
+                    <div className="offset-4 col-4">
+                      <button className="btn btn-outline-info" onClick={this.onSignIn}>Sign In</button>
+                    </div>
+                  </div>
+
+                </form>
+              </TabPane>
+              <TabPane tabId="2">
+                <form>
+                  {
+                    (signUpError)?(
+                      <p>{signUpError}</p>
+                    ): (null)
+                  }
+                  <div className="form-group row">
+                    <label htmlFor="firstname" className="mr-sm-2 col-4 text-right nomargin">First Name</label>
+                    <div className="col-6">
+                      <input
+                        className="form-control" type="text" placeholder="First Name" value={signUpFirstName} onChange={this.onTextBoxChangeSignUpFirstName}
+                      />
+                    </div>
+                  </div>
+                  <br/>
+                  <div className="form-group row">
+                    <label htmlFor="lastname" className="mr-sm-2 col-4 text-right nomargin">Last Name</label>
+                    <div className="col-6">
+                      <input
+                        className="form-control" type="text" placeholder="Last Name" value={signUpLastName} onChange={this.onTextBoxChangeSignUpLastName}
+                      />
+                    </div>
+                  </div>
+                  <br/>
+                  <div className="form-group row">
+                    <label htmlFor="email" className="mr-sm-2 col-4 text-right nomargin">Email Address</label>
+                    <div className="col-6">
+                      <input
+                        className="form-control" type="email" placeholder="Email" value={signUpEmail} onChange={this.onTextBoxChangeSignUpEmail}
+                      />
+                    </div>
+                  </div>
+                  <br/>
+                  <div className="form-group row">
+                    <label htmlFor="password" className="mr-sm-2 col-4 text-right nomargin">Password</label>
+                    <div className="col-6">
+                      <input
+                        className="form-control" type="password" placeholder="Password" value={signUpPassword} onChange={this.onTextBoxChangeSignUpPassword}
+                      />
+                    </div>
+                  </div>
+                  <br/>
+                  <div className=" form-group row">
+                    <div className="offset-4 col-4">
+                      <button className="btn btn-outline-success" onClick={this.onSignUp} >Sign Up</button>
+                    </div>
+                  </div>
+                </form>
+              </TabPane>
+            </TabContent>
+          </div>
         </div>
+
       )
     }
     return (

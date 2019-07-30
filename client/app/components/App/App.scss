@@ -1,2 +1,11 @@
 
 @import "~bootstrap/scss/bootstrap";
+body{
+  background-color: darkslategrey;
+}
+.nomargin{
+  margin-right: 0!important;
+}
+.nav-tabs{
+  border-bottom: 0;
+}
