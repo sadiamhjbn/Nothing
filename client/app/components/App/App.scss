@@ -1,4 +1,4 @@
-
+$nav-tabs-border-radius: 0;
 @import "~bootstrap/scss/bootstrap";
 
 body{
@@ -8,11 +8,21 @@ body{
   margin-right: 0!important;
 }
 .nav-tabs{
+
   border-bottom: 0;
+  box-shadow: none;
 }
-.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
-  background-color: #6D9886;
-  color: white;
+.nav-tabs .nav-link{
+  border: none;
+  border-bottom: 3px solid $gray-500;
+  padding-left: 0;
+  padding-right: 0;
+}
+.nav-tabs .nav-link.active{
+  border: none;
+  border-bottom: 3px solid #6D9886;
+  padding-left: 0;
+  padding-right: 0;
 }
 .btn-outline-greenish {
   color: #6D9886;
@@ -22,4 +32,7 @@ body{
   background-color: #6D9886;
   color:white;
   border-color: #6D9886;
+}
+.nav-tabs .nav-link{
+  border-radius: 0;
 }

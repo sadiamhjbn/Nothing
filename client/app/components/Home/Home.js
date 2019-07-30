@@ -260,13 +260,11 @@ onTextBoxChangeSignInEmail(event){
     if(!token){
       return (
         <div>
-          <br/>
-          <br/>
-          <br/>
-          <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 card">
-            <div className="offset-4">
+
+          <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mt-5 card">
+            <div >
               <Nav tabs>
-                <NavItem>
+                <NavItem className="col text-center">
                   <NavLink
                     className={this.state.activeTab === '1'? "active":""}
                     onClick={() => { this.toggle('1'); }}
@@ -274,7 +272,7 @@ onTextBoxChangeSignInEmail(event){
                     Sign In
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem className="col text-center">
                   <NavLink
                     className={this.state.activeTab === '2'? "active":""}
                     onClick={() => { this.toggle('2'); }}
@@ -376,7 +374,6 @@ onTextBoxChangeSignInEmail(event){
             </TabContent>
           </div>
         </div>
-
       )
     }
     return (
