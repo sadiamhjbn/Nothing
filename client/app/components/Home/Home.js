@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Progress,
-  Collapse, Navbar, NavbarToggler, NavbarBrand
+  Collapse, Navbar, NavbarToggler, NavbarBrand, Form
 } from 'reactstrap';
 import 'whatwg-fetch';
 import {
@@ -405,15 +405,15 @@ class Home extends Component {
       <div>
         <Navbar color="darkgreen" light expand="md" className="sticky-top text-white">
           <NavbarBrand className="text-white" href="/">Home</NavbarBrand>
-          <nav className="text-white mx-auto">
-            <form action="" className="form-inline">
-              <input className="form-control bg-transparent border-bodycolor  mx-auto text-center" placeholder="Search"
+          <Nav navbar className=" mx-auto">
+            <Form inline>
+              <input className="form-control bg-transparent border-bodycolor  mx-auto text-center text-white" placeholder="Search"
                      type="text"/>
-            </form>
-          </nav>
+            </Form>
+          </Nav>
           <NavbarToggler onClick={this.toggleNavbar}/>
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+          <Collapse className="flex-grow-0" isOpen={this.state.isOpen} navbar>
+            <Nav navbar>
               <NavItem>
                 <a className="nav-link text-white" href="#">More Courses</a>
               </NavItem>
@@ -421,7 +421,7 @@ class Home extends Component {
                 <a className="nav-link text-white" href="#">Manage account</a>
               </NavItem>
               <NavItem>
-                <a className="nav-link text-white btn" onClick={this.onLogOut}>Log out</a>
+                <a className="nav-link text-white btn text-left" onClick={this.onLogOut}>Log out</a>
               </NavItem>
             </Nav>
           </Collapse>

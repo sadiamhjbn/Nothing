@@ -14,6 +14,9 @@ $theme-colors: (
   'enrolled':$enrolled,
 
 ) !default;
+
+
+$input-placeholder-color: #fff !default;
 @import "~bootstrap/scss/bootstrap";
 
 body{
@@ -45,7 +48,4 @@ body{
 }
 .nav-tabs .nav-link{
   border-radius: 0;
-}
-::placeholder{
-  color: white;
 }
