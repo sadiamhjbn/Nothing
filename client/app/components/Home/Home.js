@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import {TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col} from 'reactstrap';
+import {
+  TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Progress,
+  Collapse, Navbar, NavbarToggler, NavbarBrand
+} from 'reactstrap';
 import 'whatwg-fetch';
 import {
   getFromStorage,
@@ -22,6 +25,7 @@ class Home extends Component {
       signUpEmail: '',
       signUpPassword: '',
       activeTab: '1',
+      isOpen: false,
     };
     this.onTextBoxChangeSignInEmail = this.onTextBoxChangeSignInEmail.bind(this);
     this.onTextBoxChangeSignInPassword = this.onTextBoxChangeSignInPassword.bind(this);
@@ -33,6 +37,7 @@ class Home extends Component {
     this.onSignIn = this.onSignIn.bind(this);
     this.onLogOut = this.onLogOut.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.toggleNavbar = this.toggleNavbar.bind(this);
   }
 
   componentWillMount() {
@@ -222,6 +227,12 @@ class Home extends Component {
     }
   }
 
+  toggleNavbar() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
+
   // fetch('/api/counters')
   //   .then(res => res.json())
   //   .then(json => {
@@ -392,36 +403,69 @@ class Home extends Component {
     }
     return (
       <div>
-        <nav className="navbar navbar-expand-lg bg-greenish navbar-dark sticky-top">
-          <a className="navbar-brand" href="#">
-            <h4 className="text-center text-gallery title">Home</h4>
-          </a>
+        <Navbar color="darkgreen" light expand="md" className="sticky-top text-white">
+          <NavbarBrand className="text-white" href="/">Home</NavbarBrand>
+          <nav className="text-white mx-auto">
+            <form action="" className="form-inline">
+              <input className="form-control bg-transparent border-bodycolor  mx-auto text-center" placeholder="Search"
+                     type="text"/>
+            </form>
+          </nav>
+          <NavbarToggler onClick={this.toggleNavbar}/>
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <a className="nav-link text-white" href="#">More Courses</a>
+              </NavItem>
+              <NavItem>
+                <a className="nav-link text-white" href="#">Manage account</a>
+              </NavItem>
+              <NavItem>
+                <a className="nav-link text-white btn" onClick={this.onLogOut}>Log out</a>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+        <Row className="m-3">
+          <Col sm="3">
+            <Card body color="complete text-white">
+              <CardTitle>Course Name</CardTitle>
+              <CardText>Duration: 34:88</CardText>
+              <CardText>Total Assignment:6</CardText>
+              <CardText>Completed Assignment:6</CardText>
+              <Progress value="100" color="dark">100%</Progress>
+            </Card>
+          </Col>
+          <Col sm="3">
+            <Card body color="continuous text-white">
+              <CardTitle>Course Name</CardTitle>
+              <CardText>Duration: 34:88</CardText>
+              <CardText>Total Assignment:5</CardText>
+              <CardText>Completed Assignment:2</CardText>
+              <Progress value="50" color="info">50%</Progress>
+            </Card>
+          </Col>
+          <Col sm="3">
+            <Card body color="enrolled text-white">
+              <CardTitle>Course Name</CardTitle>
+              <CardText>Duration: 34:88</CardText>
+              <CardText>Total Assignment:9</CardText>
+              <CardText>Completed Assignment:0</CardText>
+              <Progress value="0" color="warning">0%</Progress>
+            </Card>
+          </Col>
+          <Col sm="3">
+            <Card body color="complete text-white">
+              <CardTitle>Course Name</CardTitle>
+              <CardText>Duration: 34:88</CardText>
+              <CardText>Total Assignment:6</CardText>
+              <CardText>Completed Assignment:6</CardText>
+              <Progress value="100" color="dark">100%</Progress>
+            </Card>
+          </Col>
+        </Row>
 
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span className="navbar-toggler-icon"></span>
-          </button>
 
-          <div className="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link " href="#">Enrolled Courses</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link " href="#">More Courses</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link " href="#">Manage account</a>
-              </li>
-              <li className="nav-item">
-                <button className="btn btn-greenish" onClick={this.onLogOut}>Log out</button>
-              </li>
-
-            </ul>
-          </div>
-          <form action="" className="justify-content-end form-inline ">
-            <input className="form-control bg-transparent" placeholder="Search  " type="text"/>
-          </form>
-        </nav>
       </div>
     );
   }

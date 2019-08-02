@@ -1,7 +1,18 @@
 $nav-tabs-border-radius: 0;
 $greenbtn: #6D9886;
+$darkgreen: #374f45;
+$bodycolor: #B0BCAA;
+$complete: #3E4C5E;
+$continuous: #112F41;
+$enrolled: #BB7839;
 $theme-colors: (
   'greenish': $greenbtn,
+  'darkgreen': $darkgreen,
+  'bodycolor': $bodycolor,
+  'complete': $complete,
+  'continuous': $continuous,
+  'enrolled':$enrolled,
+
 ) !default;
 @import "~bootstrap/scss/bootstrap";
 
@@ -35,8 +46,6 @@ body{
 .nav-tabs .nav-link{
   border-radius: 0;
 }
-.abanai{
-  border-radius: 4em;
-  height: 1.5em;
-  background: none;
+::placeholder{
+  color: white;
 }
