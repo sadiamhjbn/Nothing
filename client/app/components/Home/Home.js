@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Progress,
-  Collapse, Navbar, NavbarToggler, NavbarBrand, Form
+  Collapse, Navbar, NavbarToggler, NavbarBrand, Form, CardBody, CardHeader, CardFooter
 } from 'reactstrap';
 import 'whatwg-fetch';
 import {
   getFromStorage,
   setInStorage
 } from '../../utils/storage';
+import CourseCard from "./CourseCard";
 
 class Home extends Component {
   constructor(props) {
@@ -426,43 +427,11 @@ class Home extends Component {
             </Nav>
           </Collapse>
         </Navbar>
-        <Row className="m-3">
-          <Col sm="3">
-            <Card body color="complete text-white">
-              <CardTitle>Course Name</CardTitle>
-              <CardText>Duration: 34:88</CardText>
-              <CardText>Total Assignment:6</CardText>
-              <CardText>Completed Assignment:6</CardText>
-              <Progress value="100" color="dark">100%</Progress>
-            </Card>
-          </Col>
-          <Col sm="3">
-            <Card body color="continuous text-white">
-              <CardTitle>Course Name</CardTitle>
-              <CardText>Duration: 34:88</CardText>
-              <CardText>Total Assignment:5</CardText>
-              <CardText>Completed Assignment:2</CardText>
-              <Progress value="50" color="info">50%</Progress>
-            </Card>
-          </Col>
-          <Col sm="3">
-            <Card body color="enrolled text-white">
-              <CardTitle>Course Name</CardTitle>
-              <CardText>Duration: 34:88</CardText>
-              <CardText>Total Assignment:9</CardText>
-              <CardText>Completed Assignment:0</CardText>
-              <Progress value="0" color="warning">0%</Progress>
-            </Card>
-          </Col>
-          <Col sm="3">
-            <Card body color="complete text-white">
-              <CardTitle>Course Name</CardTitle>
-              <CardText>Duration: 34:88</CardText>
-              <CardText>Total Assignment:6</CardText>
-              <CardText>Completed Assignment:6</CardText>
-              <Progress value="100" color="dark">100%</Progress>
-            </Card>
-          </Col>
+        <Row className="mx-3">
+          <CourseCard duration="34:12" total="6" completed="6" title="Course Name"/>
+          <CourseCard duration="40:00" total="6" completed="3" title="Course Name"/>
+          <CourseCard duration="49:00" total="6" completed="0" title="Course Name"/>
+          <CourseCard duration="40:00" total="6" completed="6" title="Course Name"/>
         </Row>
 
 
