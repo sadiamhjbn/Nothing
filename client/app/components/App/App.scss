@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=ABeeZee|Lora:400i&display=swap');
+$font-family-sans-serif:      Abeezee, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$headings-font-family:        Lora, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+
 $nav-tabs-border-radius: 0;
 $greenbtn: #6D9886;
 $darkgreen: #374f45;
@@ -49,3 +54,5 @@ body{
 .nav-tabs .nav-link{
   border-radius: 0;
 }
+
+
