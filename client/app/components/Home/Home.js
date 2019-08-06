@@ -270,7 +270,13 @@ class Home extends Component {
       signUpError,
     } = this.state;
     if (isLoading) {
-      return (<div><p>Loading...</p></div>);
+      return (
+        <div>
+          <div className="col-4 offset-4 mt-5">
+            <h1>Loading...</h1>
+          </div>
+        </div>
+      );
     }
 
     if (!token) {
@@ -430,7 +436,7 @@ class Home extends Component {
         <Row className="mx-3">
           <CourseCard duration="34:12" total="6" completed="6" title="Course Name"/>
           <CourseCard duration="40:00" total="6" completed="3" title="Course Name"/>
-          <CourseCard duration="49:00" total="6" completed="0" title="Course Name"/>
+          <CourseCard duration="49:00" total="6" completed="0"  title="Course Name"/>
           <CourseCard duration="40:00" total="6" completed="6" title="Course Name"/>
         </Row>
 
