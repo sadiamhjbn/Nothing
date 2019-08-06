@@ -119,7 +119,7 @@ class Home extends Component {
       signUpPassword,
     } = this.state;
     this.setState({
-      isLoading: true,
+      activeTab: '3',
     });
     //post req to backend
     fetch('/api/account/signup', {
@@ -138,8 +138,8 @@ class Home extends Component {
       .then(json => {
         if (json.success) {
           this.setState({
-            signUpError: json.message,
-            isLoading: false,
+            signUpError: '',
+            activeTab: '1',
             signUpEmail: '',
             signUpPassword: '',
             signUpFirstName: '',
@@ -148,7 +148,7 @@ class Home extends Component {
         } else {
           this.setState({
             signUpError: json.message,
-            isLoading: false,
+            activeTab: '1',
           });
         }
 
@@ -163,7 +163,7 @@ class Home extends Component {
       signInPassword,
     } = this.state;
     this.setState({
-      isLoading: true,
+      activeTab: '3',
     });
     //post req to backend
     fetch('/api/account/signin', {
@@ -181,8 +181,8 @@ class Home extends Component {
         if (json.success) {
           setInStorage('the_main_app', {token: json.token});
           this.setState({
-            signInError: json.message,
-            isLoading: false,
+            signInError:'',
+            activeTab: '1',
             signInEmail: '',
             signInPassword: '',
             token: json.token,
@@ -190,7 +190,7 @@ class Home extends Component {
         } else {
           this.setState({
             signInError: json.message,
-            isLoading: false,
+            activeTab: '1',
           });
         }
 
@@ -200,7 +200,7 @@ class Home extends Component {
 
   onLogOut() {
     this.setState({
-      isLoading: true,
+      activeTab: '3',
     });
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
@@ -212,17 +212,17 @@ class Home extends Component {
           if (json.success) {
             this.setState({
               token: '',
-              isLoading: false,
+              activeTab: '1',
             });
           } else {
             this.setState({
-              isLoading: false,
+              activeTab: '1',
             });
           }
         });
     } else {
       this.setState({
-        isLoading: false
+        activeTab: '1'
       });
     }
   }
@@ -258,7 +258,6 @@ class Home extends Component {
   render() {
     console.log("state "+this.state.activeTab);
     const {
-      isLoading,
       token,
       signInError,
       signInEmail,
@@ -276,7 +275,7 @@ class Home extends Component {
 
           <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mt-5 card">
             <div>
-              <Nav tabs className="d-flex justify-content-center">
+              { (this.state.activeTab!=='3')&&<Nav tabs className="d-flex justify-content-center">
                 <NavItem className="text-center">
                   <NavLink
                     className={this.state.activeTab === '1' ? "active" : ""}
@@ -297,7 +296,7 @@ class Home extends Component {
                     Sign Up
                   </NavLink>
                 </NavItem>
-              </Nav>
+              </Nav>}
             </div>
             <br/>
             <TabContent activeTab={this.state.activeTab}>
@@ -395,7 +394,7 @@ class Home extends Component {
                 </form>
               </TabPane>
               <TabPane tabId="3">
-                <div>
+                <div className="text-center">
                   <h1>Loading...</h1>
                 </div>
               </TabPane>
