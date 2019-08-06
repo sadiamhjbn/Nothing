@@ -15,7 +15,6 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      isLoading: true,
       token: '',
       signUpError: '',
       signInError: '',
@@ -25,7 +24,7 @@ class Home extends Component {
       signUpLastName: '',
       signUpEmail: '',
       signUpPassword: '',
-      activeTab: '1',
+      activeTab: '3',
       isOpen: false,
     };
     this.onTextBoxChangeSignInEmail = this.onTextBoxChangeSignInEmail.bind(this);
@@ -52,17 +51,17 @@ class Home extends Component {
           if (json.success) {
             this.setState({
               token,
-              isLoading: false,
+              activeTab: '1',
             });
           } else {
             this.setState({
-              isLoading: false,
+              activeTab: '1',
             });
           }
         });
     } else {
       this.setState({
-        isLoading: false
+        activeTab: '1'
       });
     }
   }
@@ -257,6 +256,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log("state "+this.state.activeTab);
     const {
       isLoading,
       token,
@@ -269,15 +269,6 @@ class Home extends Component {
       signUpPassword,
       signUpError,
     } = this.state;
-    if (isLoading) {
-      return (
-        <div>
-          <div className="col-4 offset-4 mt-5">
-            <h1>Loading...</h1>
-          </div>
-        </div>
-      );
-    }
 
     if (!token) {
       return (
@@ -402,6 +393,11 @@ class Home extends Component {
                     </div>
                   </div>
                 </form>
+              </TabPane>
+              <TabPane tabId="3">
+                <div>
+                  <h1>Loading...</h1>
+                </div>
               </TabPane>
             </TabContent>
           </div>

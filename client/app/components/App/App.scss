@@ -1,39 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=ABeeZee|Lora:400i&display=swap');
-$font-family-sans-serif:      Abeezee, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$headings-font-family:        Lora, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
+$font-family-sans-serif: Abeezee, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$headings-font-family: Lora, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
 $nav-tabs-border-radius: 0;
-$greenbtn: #6D9886;
+$greenish: #6D9886;
 $darkgreen: #374f45;
-$bodycolor: #B0BCAA;
+$bodyColor: #B0BCAA;
 $complete: #3E4C5E;
 $continuous: #112F41;
 $enrolled: #BB7839;
 $theme-colors: (
-  'greenish': $greenbtn,
+  'greenish': $greenish,
   'darkgreen': $darkgreen,
-  'bodycolor': $bodycolor,
   'complete': $complete,
   'continuous': $continuous,
   'enrolled':$enrolled,
-
 ) !default;
-
+$body-bg: $bodyColor !default;
 
 $input-placeholder-color: #fff !default;
 @import "~bootstrap/scss/bootstrap";
 
-body{
-  background-color: #B0BCAA;
-}
-
-.nav-tabs{
-
+.nav-tabs {
   border-bottom: 0;
   box-shadow: none;
 }
-.nav-tabs .nav-link{
+
+.nav-tabs .nav-link {
   @extend .px-2;
   @extend .mx-3;
   cursor: pointer;
@@ -42,7 +36,8 @@ body{
   padding-left: 0;
   padding-right: 0;
 }
-.nav-tabs .nav-link.active{
+
+.nav-tabs .nav-link.active {
   @extend .px-2;
   @extend .mx-3;
   cursor: pointer;
@@ -51,8 +46,7 @@ body{
   padding-left: 0;
   padding-right: 0;
 }
-.nav-tabs .nav-link{
+
+.nav-tabs .nav-link {
   border-radius: 0;
 }
-
-
