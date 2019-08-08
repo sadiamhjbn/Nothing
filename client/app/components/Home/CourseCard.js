@@ -10,7 +10,7 @@ export default class CourseCard extends Component {
       progressColor = "dark";
     } else if (progress === 0) {
       color = "enrolled";
-      progressColor = "warning";
+      progressColor = "transparent";
     } else {
       color = "continuous";
       progressColor = "info";

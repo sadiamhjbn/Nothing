@@ -50,3 +50,8 @@ $input-placeholder-color: #fff !default;
 .nav-tabs .nav-link {
   border-radius: 0;
 }
+
+.progress-bar[aria-valuenow="0"]{
+  width: 100% !important;
+  text-align: center;
+}
