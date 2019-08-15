@@ -4,7 +4,7 @@ import {
   Nav, NavItem, Row, Collapse, Navbar, NavbarToggler, NavbarBrand, Form
 } from 'reactstrap';
 
-export default class MoreCourses extends Component() {
+export default class MoreCourses extends Component{
   render() {
     return (
       <>
