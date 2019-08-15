@@ -4,14 +4,18 @@ import 'whatwg-fetch';
 import * as PropTypes from "prop-types";
 import {getFromStorage, setInStorage} from "../../utils/storage";
 import {
+  Collapse,
+  Form,
   Nav,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
   NavItem,
   Row,
   TabContent,
   TabPane
 } from "reactstrap";
 import Home from "../Home/Home";
-import NavBar from "../Home/NavBar"
 import {BrowserRouter as Router, NavLink, Route, Switch} from "react-router-dom";
 import NotFound from "./NotFound";
 import MoreCourses from "../Home/MoreCourses";
@@ -31,6 +35,7 @@ class App extends Component {
       signUpEmail: '',
       signUpPassword: '',
       activeTab: '3',
+      isOpen: false,
     };
     this.onTextBoxChangeSignInEmail = this.onTextBoxChangeSignInEmail.bind(this);
     this.onTextBoxChangeSignInPassword = this.onTextBoxChangeSignInPassword.bind(this);
@@ -387,9 +392,30 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <NavBar>
-
-          </NavBar>
+          <Navbar color="darkgreen" dark expand="md" className="sticky-top text-white">
+            <NavbarBrand tag={NavLink} to="/">Home</NavbarBrand>
+            <Nav navbar className=" mx-auto">
+              <Form inline>
+                <input className="form-control bg-transparent border-bodycolor  mx-auto text-center text-white"
+                       placeholder="Search"
+                       type="text"/>
+              </Form>
+            </Nav>
+            <NavbarToggler onClick={this.toggleNavbar}/>
+            <Collapse className="flex-grow-0" isOpen={this.state.isOpen} navbar>
+              <Nav navbar>
+                <NavItem>
+                  <NavLink className="nav-link" to="/courses">More Courses</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="#">Manage account</NavLink>
+                </NavItem>
+                <NavItem>
+                  <a className="nav-link btn text-left" onClick={this.onLogOut}>Log out</a>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
           <Row className="mx-3">
             <Switch>
               <Route exact path="/" component={Home}/>
