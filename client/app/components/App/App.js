@@ -26,7 +26,6 @@ class App extends Component {
       signUpEmail: '',
       signUpPassword: '',
       activeTab: '3',
-      isOpen: false,
     };
     this.onTextBoxChangeSignInEmail = this.onTextBoxChangeSignInEmail.bind(this);
     this.onTextBoxChangeSignInPassword = this.onTextBoxChangeSignInPassword.bind(this);
@@ -38,7 +37,6 @@ class App extends Component {
     this.onSignIn = this.onSignIn.bind(this);
     this.onLogOut = this.onLogOut.bind(this);
     this.toggle = this.toggle.bind(this);
-    this.toggleNavbar = this.toggleNavbar.bind(this);
   }
 
   componentWillMount() {
@@ -229,12 +227,6 @@ class App extends Component {
     }
   }
 
-  toggleNavbar() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  }
-
   render() {
     const {
       token,
@@ -383,7 +375,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <NavBar onNavbarToggle={this.toggleNavbar} isOpen={this.state.isOpen} onLogOut={this.onLogOut}/>
+          <NavBar onLogOut={this.onLogOut}/>
           <Row className="mx-3">
             <Switch>
               <Route exact path="/" component={Home}/>

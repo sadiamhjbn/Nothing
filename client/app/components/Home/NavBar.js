@@ -4,6 +4,18 @@ import {NavLink} from "react-router-dom";
 import * as PropTypes from "prop-types";
 
 export default class NavBar extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      isOpen: false,
+    };
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+  }
+  toggleNavbar() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
   render() {
     return <Navbar color="darkgreen" dark expand="md" className="sticky-top text-white">
       <NavbarBrand tag={NavLink} to="/">Home</NavbarBrand>
