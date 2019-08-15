@@ -20,6 +20,7 @@ $theme-colors: (
 $body-bg: $bodyColor !default;
 
 $input-placeholder-color: #fff !default;
+$navbar-dark-active-color:     $enrolled !default;
 @import "~bootstrap/scss/bootstrap";
 
 .nav-tabs {

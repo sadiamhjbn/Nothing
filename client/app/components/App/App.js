@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import './App.scss';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import 'whatwg-fetch';
 import * as PropTypes from "prop-types";
 import {getFromStorage, setInStorage} from "../../utils/storage";
@@ -13,14 +11,12 @@ import {
   NavbarBrand,
   NavbarToggler,
   NavItem,
-  NavLink, Row,
+  Row,
   TabContent,
   TabPane
 } from "reactstrap";
-import CourseCard from "../Home/CourseCard";
 import Home from "../Home/Home";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import HelloWorld from "../HelloWorld/HelloWorld";
+import {BrowserRouter as Router, NavLink, Route, Switch} from "react-router-dom";
 import NotFound from "./NotFound";
 import MoreCourses from "../Home/MoreCourses";
 
@@ -248,28 +244,6 @@ class App extends Component {
     });
   }
 
-  // fetch('/api/counters')
-  //   .then(res => res.json())
-  //   .then(json => {
-  //     this.setState({
-  //       counters: json
-  //     });
-  //   });
-  // fetch('/api/counters', { method: 'POST' })
-  //   .then(res => res.json())
-  //   .then(json => {
-  //     let data = this.state.counters;
-  //     data.push(json);
-  //
-  //     this.setState({
-  //       counters: data
-  //     });
-  //   });
-
-  newCounter() {
-
-  }
-
   render() {
     const {
       token,
@@ -286,7 +260,6 @@ class App extends Component {
     if (!token) {
       return (
         <div>
-
           <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mt-5 card">
             <div>
               {(this.state.activeTab !== '3') && <Nav tabs className="d-flex justify-content-center">
@@ -348,7 +321,6 @@ class App extends Component {
                       <button className="btn btn-outline-greenish" onClick={this.onSignIn}>Sign In</button>
                     </div>
                   </div>
-
                 </form>
               </TabPane>
               <TabPane tabId="2">
@@ -418,43 +390,41 @@ class App extends Component {
       )
     }
     return (
-      <div>
-        <Navbar color="darkgreen" light expand="md" className="sticky-top text-white">
-          <NavbarBrand className="text-white" href="/">Home</NavbarBrand>
-          <Nav navbar className=" mx-auto">
-            <Form inline>
-              <input className="form-control bg-transparent border-bodycolor  mx-auto text-center text-white"
-                     placeholder="Search"
-                     type="text"/>
-            </Form>
-          </Nav>
-          <NavbarToggler onClick={this.toggleNavbar}/>
-          <Collapse className="flex-grow-0" isOpen={this.state.isOpen} navbar>
-            <Nav navbar>
-              <NavItem>
-                <a className="nav-link text-white" href="/courses">More Courses</a>
-              </NavItem>
-              <NavItem>
-                <a className="nav-link text-white" href="#">Manage account</a>
-              </NavItem>
-              <NavItem>
-                <a className="nav-link text-white btn text-left" onClick={this.onLogOut}>Log out</a>
-              </NavItem>
+      <Router>
+        <div>
+          <Navbar color="darkgreen" dark expand="md" className="sticky-top text-white">
+            <NavbarBrand tag={NavLink} to="/">Home</NavbarBrand>
+            <Nav navbar className=" mx-auto">
+              <Form inline>
+                <input className="form-control bg-transparent border-bodycolor  mx-auto text-center text-white"
+                       placeholder="Search"
+                       type="text"/>
+              </Form>
             </Nav>
-          </Collapse>
-        </Navbar>
-        <Row className="mx-3">
-          <Router>
+            <NavbarToggler onClick={this.toggleNavbar}/>
+            <Collapse className="flex-grow-0" isOpen={this.state.isOpen} navbar>
+              <Nav navbar>
+                <NavItem>
+                  <NavLink className="nav-link" to="/courses">More Courses</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="#">Manage account</NavLink>
+                </NavItem>
+                <NavItem>
+                  <a className="nav-link btn text-left" onClick={this.onLogOut}>Log out</a>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+          <Row className="mx-3">
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/courses" component={MoreCourses}/>
               <Route component={NotFound}/>
             </Switch>
-          </Router>
-        </Row>
-
-
-      </div>
+          </Row>
+        </div>
+      </Router>
     );
   }
 }
