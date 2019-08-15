@@ -260,7 +260,6 @@ class App extends Component {
               {(this.state.activeTab !== '3') && <Nav tabs className="d-flex justify-content-center">
                 <NavItem className="text-center">
                   <NavLink
-                    to="#"
                     className={this.state.activeTab === '1' ? "active" : ""}
                     onClick={() => {
                       this.toggle('1');
@@ -271,7 +270,6 @@ class App extends Component {
                 </NavItem>
                 <NavItem className="text-center">
                   <NavLink
-                    to="#"
                     className={this.state.activeTab === '2' ? "active" : ""}
                     onClick={() => {
                       this.toggle('2');
