@@ -45,7 +45,5 @@ export default class NavBar extends Component{
 }
 
 NavBar.propTypes = {
-  onNavbarToggle: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
   onLogOut: PropTypes.func.isRequired
 };

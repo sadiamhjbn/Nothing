@@ -22,7 +22,7 @@ class App extends Component {
     };
 
     this.onLogOut = this.onLogOut.bind(this);
-    this.onSuccessfulLogIn = this.onSuccessfulLogIn(this);
+    this.onSuccessfulLogIn = this.onSuccessfulLogIn.bind(this);
   }
 
   onSuccessfulLogIn(token){

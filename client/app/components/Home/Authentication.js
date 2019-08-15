@@ -54,37 +54,37 @@ export default class Authentication extends Component {
   }
   onTextBoxChangeSignInEmail(event) {
     this.setState({
-      signInEmail: event.target.signInEmail,
+      signInEmail: event.target.value,
     });
   }
 
   onTextBoxChangeSignInPassword(event) {
     this.setState({
-      signInPassword: event.target.signInEmail,
+      signInPassword: event.target.value,
     });
   }
 
   onTextBoxChangeSignUpEmail(event) {
     this.setState({
-      signUpEmail: event.target.signInEmail,
+      signUpEmail: event.target.value,
     });
   }
 
   onTextBoxChangeSignUpPassword(event) {
     this.setState({
-      signUpPassword: event.target.signInEmail,
+      signUpPassword: event.target.value,
     });
   }
 
   onTextBoxChangeSignUpFirstName(event) {
     this.setState({
-      signUpFirstName: event.target.signInEmail,
+      signUpFirstName: event.target.value,
     });
   }
 
   onTextBoxChangeSignUpLastName(event) {
     this.setState({
-      signUpLastName: event.target.signInEmail,
+      signUpLastName: event.target.value,
     });
   }
 
