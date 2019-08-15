@@ -36,15 +36,10 @@ export default class Authentication extends Component {
         .then(res => res.json())
         .then(json => {
           if (json.success) {
-            this.setState({
-              token,
-              activeTab: '1',
-            });
-          } else {
-            this.setState({
-              activeTab: '1',
-            });
-          }
+            this.props.onSuccessfulLogIn(token);
+          } this.setState({
+            activeTab: '1',
+          });
         });
     } else {
       this.setState({
