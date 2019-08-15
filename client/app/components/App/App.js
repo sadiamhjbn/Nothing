@@ -8,6 +8,7 @@ import {
   Form,
   Nav,
   Navbar,
+  NavLink as BNavLink,
   NavbarBrand,
   NavbarToggler,
   NavItem,
@@ -264,24 +265,24 @@ class App extends Component {
             <div>
               {(this.state.activeTab !== '3') && <Nav tabs className="d-flex justify-content-center">
                 <NavItem className="text-center">
-                  <NavLink
+                  <BNavLink
                     className={this.state.activeTab === '1' ? "active" : ""}
                     onClick={() => {
                       this.toggle('1');
                     }}
                   >
                     Sign In
-                  </NavLink>
+                  </BNavLink>
                 </NavItem>
                 <NavItem className="text-center">
-                  <NavLink
+                  <BNavLink
                     className={this.state.activeTab === '2' ? "active" : ""}
                     onClick={() => {
                       this.toggle('2');
                     }}
                   >
                     Sign Up
-                  </NavLink>
+                  </BNavLink>
                 </NavItem>
               </Nav>}
             </div>
