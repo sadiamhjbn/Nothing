@@ -13,7 +13,7 @@ export default class MoreCourseCard extends Component {
             <CardText>Total Assignment: <span className="text-monospace">{this.props.total}</span></CardText>
           </CardBody>
           <CardFooter>
-            <Button outline color="info">Enroll</Button>
+            <Button color="darkgreen">Enroll</Button>
           </CardFooter>
         </Card>
       </Col>
