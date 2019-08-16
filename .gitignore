@@ -24,4 +24,4 @@ $RECYCLE.BIN/
 .Trashes
 
 .idea/
-package-log.json
+package-lock.json
