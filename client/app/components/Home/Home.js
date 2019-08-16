@@ -1,27 +1,38 @@
 import React, {Component} from 'react';
-import {
-  TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Progress,
-  Collapse, Navbar, NavbarToggler, NavbarBrand, Form, CardBody, CardHeader, CardFooter
-} from 'reactstrap';
 import 'whatwg-fetch';
-import {
-  getFromStorage,
-  setInStorage
-} from '../../utils/storage';
 import CourseCard from "./CourseCard";
+import axios from 'axios';
+import {getFromStorage} from "../../utils/storage";
 
 
 class Home extends Component {
- render(){
-   return(
-     <>
-       <CourseCard duration="34:12" total="6" completed="6" title="Course Name"/>
-       <CourseCard duration="40:00" total="6" completed="3" title="Course Name"/>
-       <CourseCard duration="49:00" total="6" completed="0"  title="Course Name"/>
-       <CourseCard duration="40:00" total="6" completed="6" title="Course Name"/>
-     </>
-   )
- }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      token: undefined,
+      registeredCourses: [],
+    }
+  }
+
+  componentDidMount() {
+    const cache = getFromStorage('the_main_app');
+    if (!cache || !cache.token) {
+      return;
+    }
+    const token = cache.token;
+    this.setState({token});
+    axios.get(`/api/courses/registered?token=${token}`)
+      .then(response => {
+        this.setState({registeredCourses: response.data.registeredCourses});
+      });
+  }
+
+  render(){
+   return this.state.registeredCourses.map(course => {
+    return <CourseCard key={course.title} duration={course.duration} total={course.total} completed={course.completed} title={course.title}/>;
+   });
+  }
 }
 
 

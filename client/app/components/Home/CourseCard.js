@@ -3,7 +3,7 @@ import {Card, CardBody, CardFooter, CardHeader, CardText, CardTitle, Col, Progre
 
 export default class CourseCard extends Component {
   render() {
-    const progress = this.props.completed / this.props.total * 100;
+    const progress = +(this.props.completed / this.props.total * 100).toFixed(2);
     let color, progressColor;
     if (progress === 100) {
       color = "complete";
@@ -25,7 +25,7 @@ export default class CourseCard extends Component {
             <CardText>Completed Assignment: <span className="text-monospace">{this.props.completed}</span></CardText>
           </CardBody>
           <CardFooter>
-            <Progress barClassName={progress ? "text-white" : "text-dark"} value={progress} color={progressColor}
+            <Progress barClassName={(progress >= 20) ? "" : "text-dark"} value={progress} color={progressColor}
                       style={{height: '1.5rem'}}>{progress}%</Progress>
           </CardFooter>
         </Card>

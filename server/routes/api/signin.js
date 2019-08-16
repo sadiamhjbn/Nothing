@@ -1,5 +1,7 @@
 const User = require('../../models/User');
 const UserSession = require('../../models/UserSession');
+const verify = require('../../utils').verify;
+
 module.exports = (app) => {
   // app.get('/api/counters', (req, res, next) => {
   //   Counter.find()
@@ -92,14 +94,8 @@ module.exports = (app) => {
 
   });
   app.post('/api/account/signin',(req, res, next)=> {
-    console.log("start");
     const {body} = req;
-    const {
-      password
-    } = body;
-    const{
-      email
-    }=body;
+    const {password, email} = body;
     if(!email){
       return res.send({
         success: false,
@@ -112,10 +108,10 @@ module.exports = (app) => {
         message: 'Error: Password cannot be empty'
       });
     }
-    let emaill =email.toLowerCase();
+    const lowerCasedEmail =email.toLowerCase();
 
     User.find({
-      email: emaill
+      email: lowerCasedEmail
     },(err,users)=>{
       if(err){
         return res.send ({
@@ -154,6 +150,7 @@ module.exports = (app) => {
       });
     });
   });
+
   app.get('/api/account/verify',(req, res, next)=> {
     //get the token
     const{query} = req;
@@ -161,30 +158,21 @@ module.exports = (app) => {
     //?token=test
     //verify the token is one of a kind and it's not deleted
 
-    UserSession.find({
-      _id: token,
-      isDeleted: false
-    },(err,sessions)=>{
-      if(err){
-        return res.send({
-          success: false,
-          message: "error: server error"
-        });
-      }
-      if(sessions.length!==1){
-        return res.send({
-          success: false,
-          message: "error: Invalid"
-        });
-      }
-      else{
-        return res.send({
+    verify(token)
+      .then(() => {
+        res.send({
           success: true,
           message: "Good"
         });
-      }
-    });
+      })
+      .catch(err => {
+        res.send({
+          success: false,
+          message: err.message
+        });
+      });
   });
+
   app.get('/api/account/logout',(req, res, next)=> {
     //get the token
     const{query} = req;
