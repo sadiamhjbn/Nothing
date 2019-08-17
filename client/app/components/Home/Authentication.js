@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Nav, NavItem, NavLink as BNavLink, TabContent, TabPane} from "reactstrap";
+import {Card, Col, Nav, NavItem, NavLink as BNavLink, Row, TabContent, TabPane} from "reactstrap";
 import * as PropTypes from "prop-types";
 import {getFromStorage, setInStorage} from "../../utils/storage";
 import axios from "axios";
@@ -174,7 +174,7 @@ export default class Authentication extends Component {
       signUpPassword,
       signUpError,
     } = this.state;
-    return <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mt-5 card">
+    return <Card lg={{size:4, offset:4}} md={{size:6, offset:3}} sm={{size:8, offset:2}} className="mt-5">
       <div>
         {(this.state.activeTab !== "3") && <Nav tabs className="d-flex justify-content-center">
           <NavItem className="text-center">
@@ -210,7 +210,7 @@ export default class Authentication extends Component {
                 </div>
               ) : (null)
             }
-            <div className="form-group row">
+            <Row className="form-group">
               <label htmlFor="email" className=" col-4 text-right col-form-label">Email address</label>
               <div className="col-6">
                 <input
@@ -218,7 +218,7 @@ export default class Authentication extends Component {
                   onChange={this.onTextBoxChangeSignInEmail}
                 />
               </div>
-            </div>
+            </Row>
             <br/>
             <div className="form-group row">
               <label htmlFor="password" className=" col-4 text-right col-form-label">Password</label>
@@ -230,11 +230,11 @@ export default class Authentication extends Component {
               </div>
             </div>
             <br/>
-            <div className="form-group row">
-              <div className="offset-4 col-4">
+            <Row className="form-group">
+              <Col xs={{size:4, offset:4}}>
                 <button className="btn btn-outline-greenish" onClick={this.onSignIn}>Sign In</button>
-              </div>
-            </div>
+              </Col>
+            </Row>
           </form>
         </TabPane>
         <TabPane tabId="2">
@@ -246,51 +246,51 @@ export default class Authentication extends Component {
                 </div>
               ) : (null)
             }
-            <div className="form-group row">
+            <Row className="form-group">
               <label htmlFor="firstname" className=" col-4 text-right col-form-label">First Name</label>
-              <div className="col-6">
+              <Col xs="6">
                 <input
                   className="form-control" type="text" placeholder="First Name" value={signUpFirstName}
                   onChange={this.onTextBoxChangeSignUpFirstName}
                 />
-              </div>
-            </div>
+              </Col>
+            </Row>
             <br/>
-            <div className="form-group row">
+            <Row className="form-group">
               <label htmlFor="lastname" className=" col-4 text-right col-form-label">Last Name</label>
-              <div className="col-6">
+              <Col xs="6">
                 <input
                   className="form-control" type="text" placeholder="Last Name" value={signUpLastName}
                   onChange={this.onTextBoxChangeSignUpLastName}
                 />
-              </div>
-            </div>
+              </Col>
+            </Row>
             <br/>
-            <div className="form-group row">
+            <Row className="form-group">
               <label htmlFor="email" className=" col-4 text-right col-form-label">Email Address</label>
-              <div className="col-6">
+              <Col xs="6">
                 <input
                   className="form-control" type="email" placeholder="Email" value={signUpEmail}
                   onChange={this.onTextBoxChangeSignUpEmail}
                 />
-              </div>
-            </div>
+              </Col>
+            </Row>
             <br/>
-            <div className="form-group row">
+            <Row className="form-group">
               <label htmlFor="password" className=" col-4 text-right col-form-label">Password</label>
-              <div className="col-6">
+              <Col xs="6">
                 <input
                   className="form-control" type="password" placeholder="Password" value={signUpPassword}
                   onChange={this.onTextBoxChangeSignUpPassword}
                 />
-              </div>
-            </div>
+              </Col>
+            </Row>
             <br/>
-            <div className=" form-group row">
-              <div className="offset-4 col-4">
+            <Row className=" form-group">
+              <Col xs={{size:4, offset:4}}>
                 <button className="btn btn-outline-greenish" onClick={this.onSignUp}>Sign Up</button>
-              </div>
-            </div>
+              </Col>
+            </Row>
           </form>
         </TabPane>
         <TabPane tabId="3">
@@ -299,7 +299,7 @@ export default class Authentication extends Component {
           </div>
         </TabPane>
       </TabContent>
-    </div>;
+    </Card>;
   }
 }
 
