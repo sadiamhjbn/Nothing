@@ -68,7 +68,7 @@ export default class NavBar extends Component{
             <NavLink className="nav-link" to="#">Manage account</NavLink>
           </NavItem>
           <NavItem>
-            <a className="nav-link btn text-left" onClick={this.onLogOut}>Log out</a>
+            <NavLink className="nav-link" onClick={this.onLogOut} to="#">Log out</NavLink>
           </NavItem>
         </Nav>
       </Collapse>
