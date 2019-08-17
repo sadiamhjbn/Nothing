@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Nav, NavItem, NavLink as BNavLink, TabContent, TabPane} from "reactstrap";
 import * as PropTypes from "prop-types";
 import {getFromStorage, setInStorage} from "../../utils/storage";
-
+import axios from "axios";
 export default class Authentication extends Component {
   constructor(props){
     super(props);
@@ -32,10 +32,9 @@ export default class Authentication extends Component {
     if (obj && obj.token) {
       const {token} = obj;
       //verify token
-      fetch('/api/account/verify?token=' + token)
-        .then(res => res.json())
-        .then(json => {
-          if (json.success) {
+      axios.get('/api/account/verify?token=' + token)
+        .then(response => {
+          if (response.data.success) {
             this.props.onSuccessfulLogIn(token);
           } this.setState({
             activeTab: '1',
@@ -102,30 +101,22 @@ export default class Authentication extends Component {
       activeTab: '3',
     });
     //post req to backend
-    fetch('/api/account/signin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: signInEmail,
-        password: signInPassword,
-      })
-    })
-      .then(res => res.json())
-      .then(json => {
-        if (json.success) {
-          setInStorage('the_main_app', {token: json.token});
+    axios.post('/api/account/signin', {
+      email: signInEmail,
+      password: signInPassword,
+    }).then(response => {
+        if (response.data.success) {
+          setInStorage('the_main_app', {token: response.data.token});
           this.setState({
             signInError: '',
             activeTab: '1',
             signInEmail: '',
             signInPassword: '',
           });
-          this.props.onSuccessfulLogIn(json.token);
+          this.props.onSuccessfulLogIn(response.data.token);
         } else {
           this.setState({
-            signInError: json.message,
+            signInError: response.data.message,
             activeTab: '1',
           });
         }
@@ -145,21 +136,13 @@ export default class Authentication extends Component {
       activeTab: '3',
     });
     //post req to backend
-    fetch('/api/account/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
+    axios.post('/api/account/signup', {
         firstName: signUpFirstName,
         lastName: signUpLastName,
         email: signUpEmail,
-        password: signUpPassword,
-      })
-    })
-      .then(res => res.json())
-      .then(json => {
-        if (json.success) {
+        password: signUpPassword
+    }).then(response => {
+        if (response.data.success) {
           this.setState({
             signUpError: '',
             activeTab: '1',
@@ -170,7 +153,7 @@ export default class Authentication extends Component {
           });
         } else {
           this.setState({
-            signUpError: json.message,
+            signUpError: response.data.message,
             activeTab: '1',
           });
         }
@@ -318,8 +301,6 @@ export default class Authentication extends Component {
     </div>;
   }
 }
-
-
 
 Authentication.propTypes = {
   onSuccessfulLogIn: PropTypes.func.isRequired,
