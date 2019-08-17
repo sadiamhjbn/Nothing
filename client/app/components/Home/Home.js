@@ -12,7 +12,8 @@ class Home extends Component {
     this.state = {
       token: undefined,
       registeredCourses: [],
-    }
+    };
+    this.onCardClick= this.onCardClick.bind(this);
   }
 
   componentDidMount() {
@@ -27,10 +28,15 @@ class Home extends Component {
         this.setState({registeredCourses: response.data.registeredCourses});
       });
   }
+  onCardClick(){
+    console.log(Object.keys(this.props));
+    this.props.history.push('/course/:id');
+  }
 
   render(){
    return this.state.registeredCourses.map(course => {
-    return <CourseCard key={course.title} duration={course.duration} total={course.total} completed={course.completed} title={course.title}/>;
+    return <CourseCard key={course.title} duration={course.duration} total={course.total} completed={course.completed} title={course.title}
+                       onClick={this.onCardClick}/>;
    });
   }
 }

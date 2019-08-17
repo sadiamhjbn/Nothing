@@ -56,3 +56,7 @@ $navbar-dark-active-color:     $enrolled !default;
   width: 100% !important;
   text-align: center;
 }
+
+.enrolled-course:hover {
+  cursor: pointer;
+}

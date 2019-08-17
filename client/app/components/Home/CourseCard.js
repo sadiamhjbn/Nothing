@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Card, CardBody, CardFooter, CardHeader, CardText, CardTitle, Col, Progress, Row} from "reactstrap";
 
 export default class CourseCard extends Component {
-  render() {
+  render(){
     const progress = +(this.props.completed / this.props.total * 100).toFixed(2);
     let color, progressColor;
     if (progress === 100) {
@@ -17,7 +17,7 @@ export default class CourseCard extends Component {
     }
     return (
       <Col lg="3" md="4" sm="6" >
-        <Card color={color} className="text-white mt-3">
+        <Card color={color} className="text-white mt-3 enrolled-course" onClick={this.props.onClick}>
           <CardHeader><h3><CardTitle>{this.props.title}</CardTitle></h3></CardHeader>
           <CardBody className="font-weight-light">
             <CardText>Duration: <span className="text-monospace">{this.props.duration}</span></CardText>

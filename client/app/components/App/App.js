@@ -9,6 +9,7 @@ import NotFound from "./NotFound";
 import MoreCourses from "../Home/MoreCourses";
 import NavBar from "../Home/NavBar";
 import Authentication from "../Home/Authentication";
+import StartCourse from "../Home/StartCourse";
 
 
 class App extends Component {
@@ -53,6 +54,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/courses" component={MoreCourses}/>
+              <Route path="/course/:id" component={StartCourse} />
               <Route component={NotFound}/>
             </Switch>
           </Row>
