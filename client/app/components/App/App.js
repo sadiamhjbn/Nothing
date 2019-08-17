@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.scss';
 import 'whatwg-fetch';
 import * as PropTypes from "prop-types";
-import {getFromStorage, setInStorage} from "../../utils/storage";
 import {Row} from "reactstrap";
 import Home from "../Home/Home";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -20,9 +19,8 @@ class App extends Component {
       token: '',
 
     };
-
-    this.onLogOut = this.onLogOut.bind(this);
     this.onSuccessfulLogIn = this.onSuccessfulLogIn.bind(this);
+    this.onSuccessfulLogOut = this.onSuccessfulLogOut.bind(this);
   }
 
   onSuccessfulLogIn(token){
@@ -30,35 +28,12 @@ class App extends Component {
       token: token,
     });
   }
-
-  onLogOut() {
+  onSuccessfulLogOut(){
     this.setState({
-      activeTab: '3',
+      token: null,
     });
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const {token} = obj;
-      //verify token
-      fetch('/api/account/logout?token=' + token)
-        .then(res => res.json())
-        .then(json => {
-          if (json.success) {
-            this.setState({
-              token: '',
-              activeTab: '1',
-            });
-          } else {
-            this.setState({
-              activeTab: '1',
-            });
-          }
-        });
-    } else {
-      this.setState({
-        activeTab: '1'
-      });
-    }
   }
+
 
   render() {
     const {
@@ -73,7 +48,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <NavBar onLogOut={this.onLogOut}/>
+          <NavBar onSuccessfulLogOut={this.onSuccessfulLogOut}/>
           <Row className="mx-3">
             <Switch>
               <Route exact path="/" component={Home}/>
