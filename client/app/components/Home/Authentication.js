@@ -34,10 +34,12 @@ export default class Authentication extends Component {
       //verify token
       axios.get('/api/account/verify?token=' + token)
         .then(response => {
-          if (response.data.success) {
-            this.props.onSuccessfulLogIn(token);
-          } this.setState({
+          this.setState({
             activeTab: '1',
+          },()=>{
+            if (response.data.success) {
+              this.props.onSuccessfulLogIn(token);
+            }
           });
         });
     } else {
@@ -112,8 +114,7 @@ export default class Authentication extends Component {
             activeTab: '1',
             signInEmail: '',
             signInPassword: '',
-          });
-          this.props.onSuccessfulLogIn(response.data.token);
+          },()=>this.props.onSuccessfulLogIn(response.data.token));
         } else {
           this.setState({
             signInError: response.data.message,
