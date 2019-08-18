@@ -28,37 +28,37 @@ export default class StartCourse extends Component{
           <Col xs="2" className="bg-sidebar border-right border-greenish mt-5">
             <h5>Course Content</h5>
             <ul className="nav flex-column">
-              <li className="nav-item">
+              <li className="nav-item font-italic">
                 <FontAwesomeIcon icon={faCheckCircle} />
                 <Link color="darkgreen" to="#" > Introduction</Link>
               </li>
-              <li className="nav-item">
-                <FontAwesomeIcon icon={faCheckCircle} />
-                <Link to="#" > Introduction </Link>
-              </li>
-              <li className="nav-item">
+              <li className="nav-item font-italic">
                 <FontAwesomeIcon icon={faCheckCircle} />
                 <Link color="darkgreen" to="#" > Introduction</Link>
               </li>
-              <li className="nav-item">
-                <FontAwesomeIcon icon={faCheckCircle} />
-                <Link to="#" > Introduction </Link>
-              </li>
-              <li className="nav-item">
+              <li className="nav-item font-italic">
                 <FontAwesomeIcon icon={faCheckCircle} />
                 <Link color="darkgreen" to="#" > Introduction</Link>
               </li>
-              <li className="nav-item">
-                <FontAwesomeIcon icon={faCheckCircle} />
-                <Link to="#" > Introduction </Link>
-              </li>
-              <li className="nav-item">
+              <li className="nav-item font-italic">
                 <FontAwesomeIcon icon={faCheckCircle} />
                 <Link color="darkgreen" to="#" > Introduction</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item font-italic">
                 <FontAwesomeIcon icon={faCheckCircle} />
-                <Link to="#" > Introduction </Link>
+                <Link color="darkgreen" to="#" > Introduction</Link>
+              </li>
+              <li className="nav-item font-italic">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link color="darkgreen" to="#" > Introduction</Link>
+              </li>
+              <li className="nav-item font-italic">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link color="darkgreen" to="#" > Introduction</Link>
+              </li>
+              <li className="nav-item font-italic">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link color="darkgreen" to="#" > Introduction</Link>
               </li>
             </ul>
           </Col>
