@@ -10,17 +10,21 @@ $bodyColor: #B0BCAA;
 $complete: #3E4C5E;
 $continuous: #112F41;
 $enrolled: #BB7839;
+$sidebar: #A9BCAA;
 $theme-colors: (
   'greenish': $greenish,
   'darkgreen': $darkgreen,
   'complete': $complete,
   'continuous': $continuous,
   'enrolled':$enrolled,
+  'sidebar': $sidebar,
 ) !default;
 $body-bg: $bodyColor !default;
 
 $input-placeholder-color: #fff !default;
 $navbar-dark-active-color:     $enrolled !default;
+$border-width:                1.5px !default;
+$link-color:    $darkgreen !default;
 @import "~bootstrap/scss/bootstrap";
 
 .nav-tabs {
@@ -60,3 +64,8 @@ $navbar-dark-active-color:     $enrolled !default;
 .enrolled-course:hover {
   cursor: pointer;
 }
+
+.noborder{
+  border: none;
+}
+

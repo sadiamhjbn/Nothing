@@ -1,6 +1,9 @@
 import React,{Component} from "react";
 import {Card, CardHeader, CardTitle, Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import classnames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import {Link} from "react-router-dom";
 
 export default class StartCourse extends Component{
   constructor(props) {
@@ -21,32 +24,46 @@ export default class StartCourse extends Component{
   render() {
     return (
       <Col xs="12">
-        <h2>Course Name</h2>
         <Row>
-          <Col xs="2">
+          <Col xs="2" className="bg-sidebar border-right border-greenish mt-5">
             <h5>Course Content</h5>
-            <ul>
-              <li>content1</li>
-              <li>content2</li>
-              <li>content3</li>
-              <li>content1</li>
-              <li>content2</li>
-              <li>content3</li>
-              <li>content1</li>
-              <li>content2</li>
-              <li>content3</li>
-              <li>content1</li>
-              <li>content2</li>
-              <li>content3</li>
-              <li>content1</li>
-              <li>content2</li>
-              <li>content3</li>
-              <li>content1</li>
-              <li>content2</li>
-              <li>content3</li>
+            <ul className="nav flex-column">
+              <li className="nav-item">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link color="darkgreen" to="#" > Introduction</Link>
+              </li>
+              <li className="nav-item">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link to="#" > Introduction </Link>
+              </li>
+              <li className="nav-item">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link color="darkgreen" to="#" > Introduction</Link>
+              </li>
+              <li className="nav-item">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link to="#" > Introduction </Link>
+              </li>
+              <li className="nav-item">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link color="darkgreen" to="#" > Introduction</Link>
+              </li>
+              <li className="nav-item">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link to="#" > Introduction </Link>
+              </li>
+              <li className="nav-item">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link color="darkgreen" to="#" > Introduction</Link>
+              </li>
+              <li className="nav-item">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <Link to="#" > Introduction </Link>
+              </li>
             </ul>
           </Col>
           <Col xs="10">
+            <div className="text-center"><h2>Course Name Course Name Course Name Course Name Course Name Course Name</h2></div>
             <Col lg={{size:8, offset:2}} className="embed-responsive embed-responsive-16by9 mt-3">
               <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/sLe3xW0FN2M"
                       allowFullScreen>
@@ -54,7 +71,7 @@ export default class StartCourse extends Component{
             </Col>
             <Row>
               <Col>
-                <Card className="m-3 bg-transparent">
+                <Card className="m-3 bg-transparent noborder">
                   <CardHeader>
                     <Nav tabs >
                       <NavItem className="col-4 text-center">
@@ -62,7 +79,7 @@ export default class StartCourse extends Component{
                           className={classnames({ active: this.state.activeTab === '1' })}
                           onClick={() => { this.toggle('1'); }}
                         >
-                          Overview
+                          <h3><strong>Overview</strong></h3>
                         </NavLink>
                       </NavItem>
                       <NavItem className="col-4 text-center">
@@ -70,7 +87,7 @@ export default class StartCourse extends Component{
                           className={classnames({ active: this.state.activeTab === '2' })}
                           onClick={() => { this.toggle('2'); }}
                         >
-                         FAQ
+                         <h3><strong>FAQ</strong></h3>
                         </NavLink>
                       </NavItem >
                       <NavItem className="col-4 text-center">
@@ -78,7 +95,7 @@ export default class StartCourse extends Component{
                           className={classnames({ active: this.state.activeTab === '3' })}
                           onClick={() => { this.toggle('3'); }}
                         >
-                          Assignments
+                          <h3><strong>Assignment</strong></h3>
                         </NavLink>
                       </NavItem>
                     </Nav>
@@ -87,7 +104,24 @@ export default class StartCourse extends Component{
                     <TabPane tabId="1">
                       <Row>
                         <Col sm="12">
-                          <p className="lead">Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs. Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs. The capital, Cairo, is home to Ottoman landmarks like Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.</p>
+                          <p >
+                            Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs.
+                            Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as
+                            Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs. The capital, Cairo, is home to Ottoman landmarks like
+                            Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.
+                            Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs.
+                            Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as
+                            Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs. The capital, Cairo, is home to Ottoman landmarks like
+                            Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.
+                            Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs.
+                            Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as
+                            Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs. The capital, Cairo, is home to Ottoman landmarks like
+                            Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.
+                            Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs.
+                            Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as
+                            Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs. The capital, Cairo, is home to Ottoman landmarks like
+                            Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.
+                          </p>
                         </Col>
                       </Row>
                     </TabPane>
