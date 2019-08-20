@@ -174,132 +174,136 @@ export default class Authentication extends Component {
       signUpPassword,
       signUpError,
     } = this.state;
-    return <Card className="mt-5 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col sm-8 offset-sm-2">
-      <div>
-        {(this.state.activeTab !== "3") && <Nav tabs className="d-flex justify-content-center">
-          <NavItem className="text-center">
-            <BNavLink
-              className={this.state.activeTab === "1" ? "active" : ""}
-              onClick={() => {
-                this.toggle('1');
-              }}
-            >
-              Sign In
-            </BNavLink>
-          </NavItem>
-          <NavItem className="text-center">
-            <BNavLink
-              className={this.state.activeTab === "2" ? "active" : ""}
-              onClick={() => {
-                this.toggle('2');
-              }}
-            >
-              Sign Up
-            </BNavLink>
-          </NavItem>
-        </Nav>}
-      </div>
-      <br/>
-      <TabContent activeTab={this.state.activeTab}>
-        <TabPane tabId="1">
-          <form>
-            {
-              (this.signInError) ? (
-                <div className="text-center">
-                  <p className="text-danger">{signInError}</p>
-                </div>
-              ) : (null)
-            }
-            <Row className="form-group">
-              <label htmlFor="email" className=" col-4 text-right col-form-label">Email address</label>
-              <div className="col-6">
-                <input
-                  className="form-control" type="email" placeholder="Email" value={signInEmail}
-                  onChange={this.onTextBoxChangeSignInEmail}
-                />
-              </div>
-            </Row>
-            <br/>
-            <div className="form-group row">
-              <label htmlFor="password" className=" col-4 text-right col-form-label">Password</label>
-              <div className="col-6">
-                <input
-                  className="form-control" type="password" placeholder="Password" value={signInPassword}
-                  onChange={this.onTextBoxChangeSignInPassword}
-                />
-              </div>
-            </div>
-            <br/>
-            <Row className="form-group">
-              <Col xs={{size:4, offset:4}}>
-                <button className="btn btn-outline-greenish" onClick={this.onSignIn}>Sign In</button>
-              </Col>
-            </Row>
-          </form>
-        </TabPane>
-        <TabPane tabId="2">
-          <form>
-            {
-              (signUpError) ? (
-                <div className="text-center">
-                  <p className="text-danger">{signUpError}</p>
-                </div>
-              ) : (null)
-            }
-            <Row className="form-group">
-              <label htmlFor="firstname" className=" col-4 text-right col-form-label">First Name</label>
-              <Col xs="6">
-                <input
-                  className="form-control" type="text" placeholder="First Name" value={signUpFirstName}
-                  onChange={this.onTextBoxChangeSignUpFirstName}
-                />
-              </Col>
-            </Row>
-            <br/>
-            <Row className="form-group">
-              <label htmlFor="lastname" className=" col-4 text-right col-form-label">Last Name</label>
-              <Col xs="6">
-                <input
-                  className="form-control" type="text" placeholder="Last Name" value={signUpLastName}
-                  onChange={this.onTextBoxChangeSignUpLastName}
-                />
-              </Col>
-            </Row>
-            <br/>
-            <Row className="form-group">
-              <label htmlFor="email" className=" col-4 text-right col-form-label">Email Address</label>
-              <Col xs="6">
-                <input
-                  className="form-control" type="email" placeholder="Email" value={signUpEmail}
-                  onChange={this.onTextBoxChangeSignUpEmail}
-                />
-              </Col>
-            </Row>
-            <br/>
-            <Row className="form-group">
-              <label htmlFor="password" className=" col-4 text-right col-form-label">Password</label>
-              <Col xs="6">
-                <input
-                  className="form-control" type="password" placeholder="Password" value={signUpPassword}
-                  onChange={this.onTextBoxChangeSignUpPassword}
-                />
-              </Col>
-            </Row>
-            <br/>
-            <Row className=" form-group">
-              <Col xs={{size:4, offset:4}}>
-                <button className="btn btn-outline-greenish" onClick={this.onSignUp}>Sign Up</button>
-              </Col>
-            </Row>
-          </form>
-        </TabPane>
-        <TabPane tabId="3">
-          <div className="text-center">
-            <h1>Loading...</h1>
+    return(
+      <Col lg={{size:4, offset:4}} md={{size:6,offset:3}} sm={{size:10, offset:1}}>
+        <Card className="mt-5">
+          <div>
+            {(this.state.activeTab !== "3") && <Nav tabs className="d-flex justify-content-center">
+              <NavItem className="text-center">
+                <BNavLink
+                  className={this.state.activeTab === "1" ? "active" : ""}
+                  onClick={() => {
+                    this.toggle('1');
+                  }}
+                >
+                  Sign In
+                </BNavLink>
+              </NavItem>
+              <NavItem className="text-center">
+                <BNavLink
+                  className={this.state.activeTab === "2" ? "active" : ""}
+                  onClick={() => {
+                    this.toggle('2');
+                  }}
+                >
+                  Sign Up
+                </BNavLink>
+              </NavItem>
+            </Nav>}
           </div>
-        </TabPane>
-      </TabContent>
-    </Card>;
+          <br/>
+          <TabContent activeTab={this.state.activeTab}>
+            <TabPane tabId="1">
+              <form>
+                {
+                  (this.signInError) ? (
+                    <div className="text-center">
+                      <p className="text-danger">{signInError}</p>
+                    </div>
+                  ) : (null)
+                }
+                <Row className="form-group">
+                  <label htmlFor="email" className=" col-4 text-right col-form-label">Email address</label>
+                  <div className="col-6">
+                    <input
+                      className="form-control" type="email" placeholder="Email" value={signInEmail}
+                      onChange={this.onTextBoxChangeSignInEmail}
+                    />
+                  </div>
+                </Row>
+                <br/>
+                <div className="form-group row">
+                  <label htmlFor="password" className=" col-4 text-right col-form-label">Password</label>
+                  <div className="col-6">
+                    <input
+                      className="form-control" type="password" placeholder="Password" value={signInPassword}
+                      onChange={this.onTextBoxChangeSignInPassword}
+                    />
+                  </div>
+                </div>
+                <br/>
+                <Row className="form-group">
+                  <Col xs={{size:4, offset:4}}>
+                    <button className="btn btn-outline-greenish" onClick={this.onSignIn}>Sign In</button>
+                  </Col>
+                </Row>
+              </form>
+            </TabPane>
+            <TabPane tabId="2">
+              <form>
+                {
+                  (signUpError) ? (
+                    <div className="text-center">
+                      <p className="text-danger">{signUpError}</p>
+                    </div>
+                  ) : (null)
+                }
+                <Row className="form-group">
+                  <label htmlFor="firstname" className=" col-4 text-right col-form-label">First Name</label>
+                  <Col xs="6">
+                    <input
+                      className="form-control" type="text" placeholder="First Name" value={signUpFirstName}
+                      onChange={this.onTextBoxChangeSignUpFirstName}
+                    />
+                  </Col>
+                </Row>
+                <br/>
+                <Row className="form-group">
+                  <label htmlFor="lastname" className=" col-4 text-right col-form-label">Last Name</label>
+                  <Col xs="6">
+                    <input
+                      className="form-control" type="text" placeholder="Last Name" value={signUpLastName}
+                      onChange={this.onTextBoxChangeSignUpLastName}
+                    />
+                  </Col>
+                </Row>
+                <br/>
+                <Row className="form-group">
+                  <label htmlFor="email" className=" col-4 text-right col-form-label">Email Address</label>
+                  <Col xs="6">
+                    <input
+                      className="form-control" type="email" placeholder="Email" value={signUpEmail}
+                      onChange={this.onTextBoxChangeSignUpEmail}
+                    />
+                  </Col>
+                </Row>
+                <br/>
+                <Row className="form-group">
+                  <label htmlFor="password" className=" col-4 text-right col-form-label">Password</label>
+                  <Col xs="6">
+                    <input
+                      className="form-control" type="password" placeholder="Password" value={signUpPassword}
+                      onChange={this.onTextBoxChangeSignUpPassword}
+                    />
+                  </Col>
+                </Row>
+                <br/>
+                <Row className=" form-group">
+                  <Col xs={{size:4, offset:4}}>
+                    <button className="btn btn-outline-greenish" onClick={this.onSignUp}>Sign Up</button>
+                  </Col>
+                </Row>
+              </form>
+            </TabPane>
+            <TabPane tabId="3">
+              <div className="text-center">
+                <h1>Loading...</h1>
+              </div>
+            </TabPane>
+          </TabContent>
+        </Card>
+      </Col>
+    );
   }
 }
 
