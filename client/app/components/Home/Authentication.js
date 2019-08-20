@@ -174,7 +174,7 @@ export default class Authentication extends Component {
       signUpPassword,
       signUpError,
     } = this.state;
-    return <Card lg={{size:4, offset:4}} md={{size:6, offset:3}} sm={{size:8, offset:2}} className="mt-5">
+    return <Card className="mt-5 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col sm-8 offset-sm-2">
       <div>
         {(this.state.activeTab !== "3") && <Nav tabs className="d-flex justify-content-center">
           <NavItem className="text-center">
